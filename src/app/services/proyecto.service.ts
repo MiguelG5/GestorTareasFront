@@ -11,8 +11,9 @@ export class ProyectoService {
     user_id: 0,
     nombre_del_proyecto: '',
     descripcion: '',
-    fecha_creacion: '',
-    fecha_finalizacion: ''
+    fecha_creacion : new Date(),
+    fecha_finalizacion : new Date(),
+
   };
 
   private URL_API = 'http://localhost:3200/api/proyectos';

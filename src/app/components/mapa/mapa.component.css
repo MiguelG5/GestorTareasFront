@@ -1,59 +1,19 @@
-body {
-    font-family: Arial, sans-serif;
-    background-color: #f3f4f6;
-  }
-  
-  .container {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 20px;
-  }
-  
-  .card {
-    background-color: #fff;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    border-radius: 8px;
-    overflow: hidden;
-  }
-  
-  .card-header {
-    background-color: #4b5563;
-    color: #fff;
-    padding: 20px;
-  }
-  
-  .card-title {
-    font-size: 24px;
-    margin-bottom: 10px;
-  }
-  
-  .menu-item {
-    padding: 10px 20px;
-    border-bottom: 1px solid #cbd5e0;
-  }
-  
-  .menu-item:last-child {
-    border-bottom: none;
-  }
-  
-  .menu-item:hover {
-    background-color: #e2e8f0;
-  }
-  
-  .menu-item-icon {
-    margin-right: 10px;
-  }
-  
-  .menu-item-link {
-    color: #2d3748;
-    text-decoration: none;
-  }
-  
-  .menu-item-link:hover {
-    color: #3182ce;
-  }
-   
+.container {
+  background-color: transparent;
+  border: 2px solid white; /* Ajusta el grosor y el estilo del borde según sea necesario */
+}
 
+  
+  .text-white {
+    color: white;
+  }
+  
+  .border-white {
+    border-color: white;
+  }
+  .text-xl{
+    color: white;
+  }
 /* Estilos para las migas de pan */
 .breadcrumb {
   

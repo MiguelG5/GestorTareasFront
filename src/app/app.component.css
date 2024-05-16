@@ -1,10 +1,5 @@
 .footer {
-  background-color: rgba(
-    119,
-    177,
-    121,
-    0.5
-  ); /* Color de fondo con transparencia */
+  background-color: rgb(205, 184, 255); /* Color de fondo con transparencia */
   padding: 10px 20px; /* Espaciado interno */
   position: sticky; /* Hace que la barra de navegación sea pegajosa */
   top: 0; /* Posición inicial pegajosa */
@@ -13,11 +8,11 @@
 }
 
 .footer h3 {
-  color: #ffffff;
+  color: #000000;
 }
 
 .footer p {
-  color: #eae2e2;
+  color: #000000;
 }
 
 .social-icons li {
@@ -26,7 +21,7 @@
 }
 
 .social-icons a {
-  color: #ffffff;
+  color: #000000;
   font-size: 24px;
   transition: color 0.3s;
 }
@@ -45,19 +40,19 @@
   font-family: cursive;
   font-size: 20px;
   line-height: 1.9;
-  color: #0d0d0d;
+  color: #e90000;
   text-align: center;
 }
 
 .content {
-  background-color: #071a11;
+  background-color: rgb(125, 70, 255);
 }
 .scroll-to-top-btn {
   position: fixed; /* Posición fija */
   bottom: 20px; /* Ajusta la distancia desde la parte inferior */
   right: 20px; /* Ajusta la distancia desde el lado derecho */
   z-index: 9999; /* Asegura que esté por encima de otros elementos */
-  background-color: #4CAF50; /* Color verde */
+  background-color: rgb(96, 28, 255); /* Color verde */
   color: white;
   border: none;
   border-radius: 50%;
@@ -70,5 +65,5 @@
 }
 
 .scroll-to-top-btn:hover {
-  background-color: #45a049; /* Cambia de color al pasar el ratón */
+  background-color: rgb(125, 70, 255); /* Cambia de color al pasar el ratón */
 }

@@ -1,0 +1,67 @@
+<div class="row">
+    <div class="col-md-4">
+        <div class="card">
+            <div class="card-body">
+                <form #actividadForm="ngForm" (ngSubmit)="addActividad(actividadForm)">
+
+                    <input type="hidden" name="id" [(ngModel)]="actividadesService.selectedAtividad.id">
+                   
+                    <div class="form-group">
+                    <input type="text" class="form-control" name="nombre_actividad" placeholder="Nombre de la actividad" [(ngModel)]="actividadesService.selectedAtividad.nombre_actividad">
+                    </div>
+                    <div class="form-group">
+                    <input type="text" class="form-control" name="descripcion" placeholder="Descripcion" [(ngModel)]="actividadesService.selectedAtividad.descripcion">
+                    </div>
+                    <div class="form-group">
+                    <input type="date" class="form-control" name="fecha_finalizacion" placeholder="Fecha de finalizacion" [(ngModel)]="actividadesService.selectedAtividad.fecha_finalizacion">
+                    </div>
+                    <button class="btn btn-primary" (click)="resetForm(actividadForm)">
+                        Limpiar
+                    </button>
+                    <button class="btn btn-secondary">
+                        crear
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-8">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>
+                        Nombre de la actividad
+                    </th>
+                    <th>
+                        Descripcion
+                    </th>
+                    <th>
+                        Fecha de creacion
+                    </th>
+                    <th>
+                        fecha de finalizacion
+                    </th>
+                    <th>
+                        Operaciones
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let actividad of actividadesService.actividad">
+                <td>{{actividad.nombre_actividad}}</td>
+                <td>{{actividad.descripcion}}</td>
+                <td>{{actividad.fecha_creacion}}</td>
+                <td>{{actividad.fecha_finalizacion}}</td>
+                <td>
+                    <button class="btn btn-secondary btn-sm" (click)="editActividad(actividad)">
+                        <i class="material-icons">edit</i>
+                    </button>
+                    <button class="btn btn-danger btn-sm" (click)="deleteActividad(actividad.id)">
+                        <i class="material-icons">delete</i>
+                    </button>
+                </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

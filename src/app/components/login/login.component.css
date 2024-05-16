@@ -1,0 +1,12 @@
+
+.container-fluid {
+    width: 35%;
+    background-color: white;
+    border: 2px solid white;
+    border-radius: 10%;
+  }
+  h5{
+    font-size: 40px;
+    text-align: center;
+font-family: initial;
+  }

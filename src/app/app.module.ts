@@ -11,7 +11,6 @@ import { PaginaerrorComponent } from './components/paginaerror/paginaerror.compo
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 import { CommonModule } from '@angular/common';
-import { ReservacionComponent } from './components/reservacion/reservacion.component';
 import { MatInputModule } from '@angular/material/input';
 import { MatIconModule } from '@angular/material/icon';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -23,6 +22,7 @@ import { SearchComponent } from './components/search/search.component';
 import { ResetPasswordComponent } from './components/reset-password/reset-password.component';
 import { TerminosComponent } from './components/terminos/terminos.component';
 import { ProyectosComponent } from './components/proyectos/proyectos.component';
+import { ActividadesComponent } from './components/actividades/actividades.component';
 
 
 
@@ -33,13 +33,13 @@ import { ProyectosComponent } from './components/proyectos/proyectos.component';
     PaginaerrorComponent,
     LoginComponent,
     RegisterComponent,
-    ReservacionComponent,
     MapaComponent,
     HeaderComponent,
     SearchComponent,
     ResetPasswordComponent,
     TerminosComponent,
     ProyectosComponent,
+    ActividadesComponent,
   ],
   imports: [
     BrowserModule,

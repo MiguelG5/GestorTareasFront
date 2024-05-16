@@ -1,11 +1,6 @@
 /* Estilos personalizados para el navbar */
 .navbar-custom {
-  background-color: rgba(
-    119,
-    177,
-    121,
-    0.5
-  ); /* Color de fondo con transparencia */
+  background-color: rgba(172, 149, 255, 0.5); /* Color de fondo con transparencia */
   padding: 10px 20px; /* Espaciado interno */
   position: sticky; /* Hace que la barra de navegación sea pegajosa */
   top: 0; /* Posición inicial pegajosa */
