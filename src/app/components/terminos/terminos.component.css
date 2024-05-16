@@ -1,0 +1,64 @@
+.card {
+    margin: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .card-body {
+    padding: 20px;
+  }
+  
+  h2 {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 10px;
+  }
+  
+  h3 {
+    font-size: 20px;
+    color: #555;
+    margin-bottom: 8px;
+  }
+  
+  p {
+    font-size: 16px;
+    color: #666;
+    line-height: 1.6;
+  }
+  
+
+
+/* Estilos para las migas de pan */
+.breadcrumb {
+  
+  padding: 0.75rem 1rem;
+  margin-bottom: 1rem;
+  border-radius: 0.25rem;
+}
+
+.breadcrumb-item {
+  display: inline-block;
+  margin-right: 0.5rem;
+}
+
+.breadcrumb-item:last-child {
+  font-weight: 700;
+  color: #d8ffdc; /* Color del último elemento */
+}
+
+.breadcrumb-item:not(:last-child)::after {
+  content: '>';
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
+  color: #d8ffdc; /* Color del separador */
+}
+
+.breadcrumb-item a {
+  color: #d8ffdc; /* Color de los enlaces */
+  text-decoration: none;
+}
+
+.breadcrumb-item a:hover {
+  text-decoration: underline;
+}
+

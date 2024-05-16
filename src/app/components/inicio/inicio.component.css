@@ -1,0 +1,297 @@
+
+.imgcontainer{
+    height: 1000px;
+    width: 400px;
+    display: block;
+  }
+
+ 
+.container {
+    display: flex; /* Utiliza flexbox */
+    justify-content: space-between; /* Distribuye el espacio entre las tarjetas */
+  }
+  
+  .card {
+    width: 5000px; /* Define el ancho deseado para cada tarjeta */
+    padding: 20px;
+    border: 1px solid #ccc;
+    margin: 0 10px; /* Margen entre las tarjetas */
+  }
+
+  .card1 {
+    width: 5000px; /* Define el ancho deseado para cada tarjeta */
+    padding: 20px;
+    border: 0px solid #ccc;
+    margin: 0 10px; /* Margen entre las tarjetas */
+    text-align: center;
+
+  }
+  
+  .container1 {
+    display: flex; /* Utiliza flexbox */
+    justify-content: space-between;
+    width: 80%; /* Ancho del contenedor */
+    max-width: 1200px; /* Ancho máximo del contenedor */
+    margin: 0 auto; /* Centra el contenedor horizontalmente */
+    padding: 20px; /* Espacio interno del contenedor */
+    border: 5px; /* Borde del contenedor */
+    box-sizing: border-box; /* Incluye el borde en el cálculo del ancho */
+  }
+  
+  .card-text {
+    font-family: cursive;
+    font-size: 20px;
+    line-height: 1.9;
+    color: #0d0d0d;
+    text-align: center;
+}
+
+.titulos{
+  font-family: cursive;
+  font-size: 30 px;
+  text-align: center;
+  color: #77b179;
+}
+
+.btn-custom {
+  background-color: #77b179; /* Cambia el color del botón */
+  color: white; /* Cambia el color del texto del botón */
+  display: block; /* Asegura que el botón ocupe todo el ancho del contenedor */
+  margin: 0 auto; /* Centra el botón horizontalmente */
+}
+
+.containerv {
+  position: relative;
+  width: 100%;
+  max-width: 600px; /* Ancho máximo del contenedor */
+  height: 510px;
+  margin: 0 auto; /* Centrar el contenedor */
+  overflow: hidden; /* Ocultar cualquier parte de la imagen que sobresalga del contenedor */
+}
+
+/* Estilos para la imagen de fondo */
+.containerv img {
+  width: 100%;
+  display: block;
+}
+
+/* Estilos para el texto superpuesto */
+.text-overlay {
+  position: absolute;
+  bottom: 20px; /* Posición vertical desde abajo */
+  left: 0; /* Posición horizontal al inicio */
+  right: 0; /* Posición horizontal al final */
+  text-align: center; /* Alinear el texto al centro */
+  color: white; /* Color del texto */
+}
+.content {
+  background-color: #071a11;
+}
+
+/* Estilos para las migas de pan */
+.breadcrumb {
+  
+  padding: 0.75rem 1rem;
+  margin-bottom: 1rem;
+  border-radius: 0.25rem;
+}
+
+.breadcrumb-item {
+  display: inline-block;
+  margin-right: 0.5rem;
+}
+
+.breadcrumb-item:last-child {
+  font-weight: 700;
+  color: #333; /* Color del último elemento */
+}
+
+.breadcrumb-item:not(:last-child)::after {
+  content: '>';
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
+  color: #333; /* Color del separador */
+}
+
+.breadcrumb-item a {
+  color: #d8ffdc; /* Color de los enlaces */
+  text-decoration: none;
+}
+
+.breadcrumb-item a:hover {
+  text-decoration: underline;
+}
+
+.carousel-item img {
+
+  width: 600px; /* Ancho específico para las imágenes */
+  height: 400px; /* Altura específica para las imágenes */
+  object-fit: cover; 
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  margin-top: 50px; 
+}
+
+.carousel-container {
+  margin: 0 auto; /* Centra horizontalmente el contenedor */
+  max-width: 800px; /* Establece el ancho máximo del contenedor */
+  padding: 0 20px; /* Espacio a los lados del contenedor */
+}
+
+
+/* Estilos para dispositivos móviles */
+@media screen and (max-width: 576px) {
+  .content {
+    padding: 0 10px; /* Ajusta el espaciado lateral */
+  }
+  .container {
+    padding: 0; /* Elimina el relleno en los contenedores */
+  }
+}
+
+/* Estilos para tablets y dispositivos más grandes */
+@media screen and (min-width: 768px) {
+  .content {
+    padding: 0 30px; /* Ajusta el espaciado lateral */
+  }
+  .container {
+    max-width: 750px; /* Limita el ancho máximo de los contenedores */
+    margin: auto; /* Centra los contenedores */
+  }
+}
+
+
+.menu-card {
+  border: 1px solid #e9ecef;
+  background-color: rgba(119, 177, 121, 0.5);
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  padding: 20px;
+  margin: 20px 0;
+}
+
+.menu-header h1 {
+  color: #333;
+  font-size: 28px;
+  margin-bottom: 20px;
+}
+
+.card {
+  border: 1px solid green;
+  border-radius: 10px;
+  overflow: hidden;
+  margin-bottom: 20px;
+  width: 100%;
+  height: 400px;
+  height: 900px; /* Ajustando la altura de las tarjetas */
+}
+
+.card1{
+  border: 1px solid rgb(255, 255, 255);
+  border-radius: 10px;
+  overflow: hidden;
+  margin-bottom: 20px;
+  width: 100%;
+  height: 400px;
+  height: 275px; /* Ajustando la altura de las tarjetas */
+}
+
+.card-text1 {
+  font-size: 1rem;
+  color: #fff;
+  font-family: cursive;
+}
+
+
+
+.card:hover {
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  transform: translateY(-2px);
+  transition: all 0.3s ease;
+}
+
+.card-img-top {
+  height: 200px;
+  object-fit: cover;
+}
+
+.card-title {
+  font-size: 1.2rem;
+  color: #333;
+}
+
+.card-text {
+  font-size: 1rem;
+  color: #666;
+}
+
+.button-group {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+
+.button-group button {
+  flex: 1;
+  border-radius: 20px;
+  margin: 0 5px; /* Agregando espacio entre los botones */
+}
+
+.btn-secondary {
+  background-color: #6c757d;
+  color: white;
+}
+
+.btn-danger {
+  background-color: #dc3545;
+  color: white;
+}
+
+.btn-success {
+  background-color: #28a745;
+  color: white;
+}
+
+.btn-secondary:hover, .btn-danger:hover, .btn-success:hover {
+  opacity: 0.9;
+}
+
+.titulo{
+  color: aliceblue;
+  font-size: 250%;
+  font-family: cursive;
+
+}
+
+.carrusel-text{
+  color: black;
+  font-size: 100%;
+  font-family: initial;
+  background-color: aliceblue;
+}
+
+.button-group {
+  height: 50px; /* Establecer una altura fija para los contenedores de botones */
+  display: flex; /* Utilizar flexbox para alinear verticalmente los elementos */
+  align-items: center; /* Alinear verticalmente los botones */
+  justify-content: center; /* Centrar horizontalmente los botones */
+}
+
+
+.contenedor3 {
+  max-height: 200px; /* Tamaño máximo del div */
+  overflow-y: auto; /* Permitir desplazamiento vertical si el contenido excede el tamaño */
+  padding: 10px; /* Espaciado interior */
+}
+
+.btn-bajar {
+  display: none; /* Ocultar el botón por defecto */
+}
+
+/* Mostrar el botón solo si el contenido excede el tamaño máximo */
+.contenedor:hover .btn-bajar {
+  display: block;
+}

@@ -1,0 +1,38 @@
+<div style="text-align: center;">
+  <nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item" *ngFor="let crumb of breadcrumbs">
+      <a [routerLink]="crumb.url">{{ crumb.label }}</a>
+    </li>
+  </ol>
+</nav>
+</div>
+
+
+
+<div class="menu-card">
+  <div class="menu-header">
+    <p class="titulo">Reservaciones</p>
+  </div>
+
+      <div class="row">
+        <div class="col-md-4" *ngFor="let reservaciones of reservacionesService.reservacion">
+          <div class="card mb-3">
+            <div class="card-body">
+              <h5 class="card-text">Número de Mesa: {{ reservaciones.numero_mesa}}</h5>
+              <h5 class="card-text">Fecha de la reservación: {{ reservaciones.fecha_reserva | date: 'dd/MM/yyyy' }}</h5>
+              <h5 class="card-text">Número de personas: {{ reservaciones.numero_personas}}</h5>
+              <h5 class="card-text">Motivo de la reserva : {{ reservaciones.descripcion}}</h5>
+              <h5 class="card-text">Cliente : {{ reservaciones.id_usuario}}</h5>
+              <div class="button-group">
+                
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+
+

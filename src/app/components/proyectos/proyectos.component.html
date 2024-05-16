@@ -1,0 +1,67 @@
+<div class="row">
+    <div class="col-md-4">
+        <div class="card">
+            <div class="card-body">
+                <form #proyectoForm="ngForm" (ngSubmit)="addProyecto(proyectoForm)">
+
+                    <input type="hidden" name="id" [(ngModel)]="proyectoService.selectedProyecto.id">
+                   
+                    <div class="form-group">
+                    <input type="text" class="form-control" name="nombre_del_proyecto" placeholder="Nombre del proyecto" [(ngModel)]="proyectoService.selectedProyecto.nombre_del_proyecto">
+                    </div>
+                    <div class="form-group">
+                    <input type="text" class="form-control" name="descripcion" placeholder="Descripcion" [(ngModel)]="proyectoService.selectedProyecto.descripcion">
+                    </div>
+                    <div class="form-group">
+                    <input type="date" class="form-control" name="fecha_finalizacion" placeholder="Fecha de finalizacion" [(ngModel)]="proyectoService.selectedProyecto.fecha_finalizacion">
+                    </div>
+                    <button class="btn btn-primary" (click)="resetForm(proyectoForm)">
+                        Limpiar
+                    </button>
+                    <button class="btn btn-secondary">
+                        crear
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-8">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>
+                        Nombre del proyecto
+                    </th>
+                    <th>
+                        Descripcion
+                    </th>
+                    <th>
+                        Fecha de creacion
+                    </th>
+                    <th>
+                        fecha de finalizacion
+                    </th>
+                    <th>
+                        Operaciones
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let proyecto of proyectosDelUsuario">
+                    <td>{{proyecto.nombre_del_proyecto}}</td>
+                    <td>{{proyecto.descripcion}}</td>
+                    <td>{{proyecto.fecha_creacion}}</td>
+                    <td>{{proyecto.fecha_finalizacion}}</td>
+                    <td>
+                        <button class="btn btn-secondary btn-sm" (click)="editProyecto(proyecto)">
+                            <i class="material-icons">edit</i>
+                        </button>
+                        <button class="btn btn-danger btn-sm" (click)="deleteProyecto(proyecto.id)">
+                            <i class="material-icons">delete</i>
+                        </button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

@@ -1,0 +1,75 @@
+<section class="p-4">
+  <div class="container-fluid h-custom">
+    <div
+      class="row d-flex justify-content-center align-items-center h-100 rounded p-5"
+      style="background-color: #fff"
+    >
+      <div class="col-md-9 col-lg-6 col-xl-5">
+        <img
+          src="https://d4t7t8y8xqo0t.cloudfront.net/resized/720X480/restaurant%2F684475%2Frestaurant420220819043043.jpg"
+          class="img-fluid rounded-3"
+          alt="Sample image"
+        />
+      </div>
+      <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
+        <form [formGroup]="loginForm" (submit)="login()">
+          <!-- Email input -->
+          <div data-mdb-input-init class="form-outline mb-4">
+            <input
+              type="email"
+              formControlName="email"
+              id="form3Example3"
+              class="form-control form-control-lg"
+              placeholder="Introduce tu correo electrónico"
+            />
+            <label class="form-label" for="form3Example3"
+              >Correo Electrónico</label
+            >
+          </div>
+
+          <!-- Password input -->
+          <div data-mdb-input-init class="form-outline mb-3">
+            <input
+              type="password"
+              formControlName="password"
+              id="form3Example4"
+              class="form-control form-control-lg"
+              placeholder="Introduce tu contraseña"
+            />
+            <label class="form-label" for="form3Example4">Contraseña</label>
+          </div>
+
+          <ngx-recaptcha2
+            formControlName="captcha"
+            #captchaElem
+            [siteKey]="'6Le_TsopAAAAAHKT3AbhCg5DAOGRxGZJTsdixWbl'"
+          >
+          </ngx-recaptcha2>
+
+          <div class="d-flex justify-content-between align-items-center mt-3">
+            <a class="text-body" href="/resetPassword"
+              >¿Olvidaste tu contraseña?</a
+            >
+          </div>
+
+          <div class="text-center text-lg-start mt-4 pt-2">
+            <button
+              type="submit"
+              data-mdb-button-init
+              data-mdb-ripple-init
+              class="btn btn-primary btn-lg"
+              style="padding-left: 2.5rem; padding-right: 2.5rem"
+              [disabled]="loginForm.invalid"
+            >
+              Iniciar Sesión
+            </button>
+            <p class="small fw-bold mt-2 pt-1 mb-0">
+              ¿No tienes una cuenta?
+              <a href="/register" class="link-danger">Registrate</a>
+            </p>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,43 @@
+<div style="text-align: center;">
+  <nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item" *ngFor="let crumb of breadcrumbs">
+        <a [routerLink]="crumb.url">{{ crumb.label }}</a>
+      </li>
+    </ol>
+  </nav>
+</div>
+
+
+<div class="card">
+    <div class="card-body">
+      <h2>Términos y Condiciones de Servicio:</h2>
+  
+      <h3>Reservas:</h3>
+      <p>Todas las reservas están sujetas a disponibilidad y deben hacerse con anticipación. Se requiere una confirmación de reserva para garantizar su mesa.</p>
+  
+      <h3>Horario de Servicio:</h3>
+      <p>Nuestro restaurante opera según el horario establecido y se reserva el derecho de modificar los horarios de servicio según sea necesario.</p>
+  
+      <h3>Cancelaciones:</h3>
+      <p>Por cortesía, solicitamos que cualquier cancelación de reserva se realice con al menos 24 horas de anticipación. Las cancelaciones tardías pueden estar sujetas a cargos.</p>
+  
+      <h3>Política de Grupos:</h3>
+      <p>Para grupos grandes, se puede requerir un depósito o un menú preestablecido. Por favor, póngase en contacto con nosotros para discutir las opciones disponibles para su grupo.</p>
+  
+      <h3>Servicio al Cliente:</h3>
+      <p>Nos esforzamos por ofrecer un servicio excepcional a todos nuestros clientes. Si tiene alguna solicitud especial o inquietud, no dude en comunicárnoslo.</p>
+  
+      <h2>Políticas de Privacidad y Seguridad:</h2>
+  
+      <h3>Protección de Datos Personales:</h3>
+      <p>Respetamos su privacidad y nos comprometemos a proteger sus datos personales. La información proporcionada al realizar una reserva o al utilizar nuestros servicios se utilizará únicamente con fines relacionados con su visita a nuestro restaurante.</p>
+  
+      <h3>Seguridad de Pagos:</h3>
+      <p>Cualquier información de pago proporcionada se utiliza únicamente para procesar transacciones relacionadas con su visita al restaurante. Nos comprometemos a mantener la seguridad de su información financiera en todo momento.</p>
+  
+      <h3>Comunicaciones Electrónicas:</h3>
+      <p>Al proporcionar su dirección de correo electrónico, acepta recibir comunicaciones electrónicas relacionadas con su reserva y otras noticias relevantes sobre nuestro restaurante. Respetamos su elección y le ofrecemos la opción de darse de baja de nuestras comunicaciones en cualquier momento.</p>
+    </div>
+  </div>
+  

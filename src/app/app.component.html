@@ -1,0 +1,53 @@
+<div class="content">
+  <app-header></app-header>
+  <div class="min-vh-100">
+    <router-outlet></router-outlet>
+  </div>
+
+  <footer class="footer">
+    <div class="container text-center">
+      <div class="row">
+        <div class="col-md-4">
+          <h2>Contacto</h2>
+          <p>Dirección: Calle Principal #123, Dolores Hidalgo, GTO</p>
+          <p>Teléfono: 4427504017</p>
+          <p>Correo electrónico: gustoes@gmail.com</p>
+        </div>
+        <div class="col-md-4">
+          <h2>Horario</h2>
+          <p>Lunes a Viernes: 11:00 AM - 10:00 PM</p>
+          <p>Sábados y Domingos: 12:00 PM - 11:00 PM</p>
+        </div>
+        <div class="col-md-4">
+          <h2>Síguenos</h2>
+          <ul class="list-inline social-icons">
+            <li>
+              <a href="https://www.facebook.com/p/Restaurante-Gustó-100064173429303/?paipv=0&eav=Afb_-C9F3j5asm-Yozu3seMobc65c0w7Prt-_RsKQS047JWghBGgmqcR3stM3XHW9gg&_rdr" target="_blank">
+                <i class="fab fa-facebook"></i>
+              </a>
+            </li>
+            <li>
+              <a href="https://www.instagram.com/elgustoesnuestroo/" target="_blank">
+                <i class="fab fa-instagram"></i>
+              </a>
+            </li>
+            <li>
+              <a href="https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=&cad=rja&uact=8&ved=2ahUKEwil6o39y6uEAxVxBEQIHU_JDx8QFnoECBsQAQ&url=https%3A%2F%2Ftwitter.com%2Fgustos_coffee%3Flang%3Des&usg=AOvVaw0oVZahGO8byWD8_GkGQlxS&opi=89978449" target="_blank">
+                <i class="fab fa-twitter"></i>
+              </a>
+            </li>
+          </ul>
+        </div>
+</div>        
+      <div class="row">
+        <div class="col-md-12 text-center">
+          <p>© 2024 Gustoes. Todos los derechos reservados.</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+</div>
+<button (click)="scrollToTop()" class="scroll-to-top-btn" *ngIf="isScrolled">
+  <i class="fas fa-arrow-up"></i>
+  <!-- Icono de flecha hacia arriba -->
+</button>
