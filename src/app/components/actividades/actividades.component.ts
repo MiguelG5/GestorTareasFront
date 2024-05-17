@@ -74,7 +74,7 @@ addActividad(form: NgForm) {
 
 
 deleteActividad(id: number){
-if(confirm('Estas seguro de querer eliminar tu proyecto?')){
+if(confirm('Estas seguro de querer eliminar tu ACTIVIDAD?')){
   this.actividadesService.deleteActividad(id).subscribe(
     (res)=> {
       this.getActividad();

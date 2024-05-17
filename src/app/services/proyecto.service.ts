@@ -15,7 +15,7 @@ export class ProyectoService {
     fecha_finalizacion : new Date(),
   };
 
-  private URL_API = 'http://localhost:3200/api/proyectos';
+  private URL_API = 'https://gestortareasback.onrender.com/api/proyectos';
 
   proyecto: Proyecto[] = [];
 

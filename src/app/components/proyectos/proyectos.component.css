@@ -93,3 +93,65 @@ textarea.cale {
     margin-left: 1px;
     margin-right: 1px;
 }
+.modaa {
+    background-color: rgb(125, 70, 255);
+    color: white;
+    font-family: monospace;
+    border: 2px solid white;
+  }
+  .mhh{
+    background-color:rgb(125, 70, 255) ;
+    border: 2px solid white;
+    
+}
+  .custom-card {
+    margin-bottom: 20px;
+  }
+  
+  .card-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+  .cre{
+    text-align: center;
+  }
+  .breadcrumb {
+  
+    padding: 0.75rem 1rem;
+    margin-bottom: 1rem;
+    border-radius: 0.25rem;
+  }
+  
+  .breadcrumb-item {
+    display: inline-block;
+    margin-right: 0.5rem;
+  }
+  
+  .breadcrumb-item:last-child {
+    font-weight: 700;
+    color: #d8ffdc; /* Color del último elemento */
+  }
+  
+  .breadcrumb-item:not(:last-child)::after {
+    content: '>';
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
+    color: #d8ffdc; /* Color del separador */
+  }
+  
+  .breadcrumb-item a {
+    color: #d8ffdc; /* Color de los enlaces */
+    text-decoration: none;
+  }
+  
+  .breadcrumb-item a:hover {
+    text-decoration: underline;
+  }
+  
+.b1{
+    background-color: rgb(125, 70, 255);
+    color: white;
+    font-family: monospace;
+    border: 2px solid white;
+}

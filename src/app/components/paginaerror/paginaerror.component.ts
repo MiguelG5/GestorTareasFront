@@ -9,7 +9,7 @@ export class PaginaerrorComponent implements OnInit {
 
   breadcrumbs = [
     { label: 'Inicio', url: '' },
-    { label: 'Entregas a domicilio', url: 'error' }
+    { label: 'Página no disponible', url: 'error' }
   ];
 
   constructor() { }

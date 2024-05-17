@@ -1,5 +1,5 @@
 
-<div class="container-fluid">
+<div class="container">
   <div class="row justify-content-center">
     <div class="col-md-10">
       <div class="carde mb-3">
@@ -68,7 +68,7 @@
 <div class="row containerv mt-4 menu-body">
   <div class="row justify-content-center">
     <div class="col center">
-      <div class="card mb-1">
+      <div class="card mb-1 h-100"> <!-- Agrega la clase "custom-card" aquí -->
         <div class="row g-0">
           <div class="col-md-3">
             <img 
@@ -78,23 +78,25 @@
           <div class="col-md-9">
             <div class="card-body py-2">
               <h5 class="card-title mb-2">Un centro de productividad</h5>
-              <p class="card-text mb-2">
-                Sencillo, flexible y potente. Nuestra plataforma te ofrece todo lo que necesitas para organizarte y alcanzar tus objetivos de manera eficiente. Con nuestras listas y tarjetas, puedes visualizar claramente tus metas y las tareas pendientes, lo que te permite mantener un seguimiento detallado de tu progreso. </p>
-                <p class="card-text mb-2">Ya sea que estés planificando un proyecto a largo plazo o gestionando las tareas diarias, nuestra plataforma te proporciona las herramientas necesarias para mantenerte organizado y productivo. Con un diseño intuitivo y funcionalidades potentes, puedes concentrarte en lo que realmente importa: lograr tus metas y completar tus tareas de manera eficiente y efectiva
-                </p>
-              <button routerLink="/menu" type="submit" class="btn btn-custom btn-sm">
-                Conoce más
-              </button>
+              <div class="contenedor3">
+                <p class="card-text mb-2">
+                  Sencillo, flexible y potente. Nuestra plataforma te ofrece todo lo que necesitas para organizarte y alcanzar tus objetivos de manera eficiente. Con nuestras listas y tarjetas, puedes visualizar claramente tus metas y las tareas pendientes, lo que te permite mantener un seguimiento detallado de tu progreso. </p>
+                  <p class="card-text mb-2">Ya sea que estés planificando un proyecto a largo plazo o gestionando las tareas diarias, nuestra plataforma te proporciona las herramientas necesarias para mantenerte organizado y productivo. Con un diseño intuitivo y funcionalidades potentes, puedes concentrarte en lo que realmente importa: lograr tus metas y completar tus tareas de manera eficiente y efectiva
+                  </p>
+                </div>
+                <button routerLink="/error" type="submit" class="btn btn-custom btn-sm">
+                  Conoce más
+                </button>
+              </div>
             </div>
           </div>
         </div>
       </div>
     </div>
   </div>
-</div>
 <br>
 
-<div class="row justify-content-center row-cols-5 row-cols-md-4 g-15">
+<div class="row justify-content-center row-cols-1 h-100 w-100 row-cols-md-4 g-4">
   <div class="col">
     <div class="card">
       <img src="https://i.pinimg.com/736x/e4/a8/34/e4a8348d1a0e03c8b96488245bf54cbb.jpg" class="card-img-top" alt="...">
@@ -102,7 +104,7 @@
         <h5 class="card-title">Paquete Mensual</h5>
         <p class="card-text">Accede a todas las funciones por un mes completo. Ideal para probar nuestras herramientas y ver si se ajustan a tus necesidades.</p>
         <h3 class="card-text text-primary">MXN 100 / mes</h3>
-        <button type="button" class="btn btn-primary mt-3 btn-lg">Suscribirse</button>
+        <button routerLink="/error" type="button" class="btn btn-primary mt-3 btn-lg">Suscribirse</button>
       </div>
     </div>
   </div>
@@ -113,7 +115,7 @@
         <h5 class="card-title">Paquete Semestral</h5>
           <p class="card-text">Disfruta de un ahorro con nuestro paquete de 6 meses. Acceso continuo a todas nuestras herramientas para un rendimiento óptimo.</p>
           <h3 class="card-text text-primary">MXN 550 / 6 meses</h3>
-          <button type="button" class="btn btn-primary mt-3 btn-lg">Suscribirse</button>
+          <button routerLink="/error" type="button" class="btn btn-primary mt-3 btn-lg">Suscribirse</button>
          </div>
     </div>
   </div>
@@ -124,9 +126,10 @@
         <h5 class="card-title">Paquete Anual</h5>
           <p class="card-text">Obtén el mejor valor con nuestro paquete anual. Ideal para usuarios comprometidos que desean maximizar su productividad a largo plazo.</p>
           <h3 class="card-text text-primary">MXN 900 / año</h3>
-          <button type="button" class="btn btn-primary mt-3 btn-lg">Suscribirse</button>
+          <button routerLink="/error" type="button" class="btn btn-primary mt-3 btn-lg">Suscribirse</button>
         </div>
     </div>
   </div>
 </div>
+
 <br>

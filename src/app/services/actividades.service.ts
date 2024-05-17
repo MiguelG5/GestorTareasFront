@@ -16,7 +16,7 @@ export class ActividadesService {
     fecha_finalizacion: ''
   };
 
-  private URL_API = 'http://localhost:3200/api/actividades';
+  private URL_API = 'https://gestortareasback.onrender.com/api/actividades';
 
   actividad: Actividad[] = [];
 
@@ -35,10 +35,11 @@ export class ActividadesService {
   }
 
   deleteActividad(id: number){
-    return this.http.delete(`${this.URL_API}/${id}`)
+    return this.http.delete(`${this.URL_API}/${id}`);
   }
 
-  getActividadByUser(proyecto_id: number) {
-    return this.http.get<Actividad[]>(`${this.URL_API}?proyecto_id=${proyecto_id}`);
-  }
+  getActividadByProyecto(proyecto_id: number) {
+    return this.http.get<Actividad[]>(`${this.URL_API}/proyecto/${proyecto_id}`);
+}
+
 }

@@ -13,8 +13,7 @@ import { ActividadesComponent } from './components/actividades/actividades.compo
 
 const routes: Routes = [
   { path: '', component: InicioComponent },
-  { path: 'proyectos', component: ProyectosComponent },
-  { path: 'actividades', component: ActividadesComponent },
+  { path: 'proyectos', component: ProyectosComponent, canActivate: [AuthGuard] },
   { path: 'condiciones', component: TerminosComponent}, 
   { path: 'error', component: PaginaerrorComponent },
   { path: 'login', component: LoginComponent },

@@ -27,7 +27,7 @@ export class ResetPasswordComponent implements OnInit {
       {
         type: 'pattern',
         message:
-          'Este campo debe contener mayusculas, minusculas, numeros y caracteres especiales',
+          'Este campo debe contener al menos 1 mayusculas, minusculas, numeros y caracteres especiales',
       },
       { type: 'minlength', message: 'El mínimo de caracteres es 8' },
     ],
@@ -161,9 +161,6 @@ export class ResetPasswordComponent implements OnInit {
               icon: 'success',
               timer: 3000,
               backdrop: `
-              rgba(119,177,121,0.5)
-              url("https://images.hive.blog/p/2N61tyyncFaFVtpM8rCsJzDgecVMtkz4jpzBsszXjhqan9o1w85SR7L8fqF78hGoRqTXNn9pBtcxMufdvkgD93vVJyX9RoKuvF9XkfJyx9vEeyBPk1wbthtobvSknYRDL3rBT1632ccd?format=match&mode=fit")
-              left top
               no-repeat
             `,
               showConfirmButton: false,

@@ -14,10 +14,7 @@ export class SearchComponent implements OnInit {
     { id: 'mapa', name: 'Mapa del sitio' },
     { id: 'login', name: 'Inicio sesión' },
     { id: 'register', name: 'Registrarme' },
-    { id: 'menu', name: 'Menu' },
-    { id: '', name: 'Reservaciones' },
-    { id: 'pedido', name: 'pedidos' },
-    { id: 'carrito', name: 'Carrito' },
+    { id: 'proyectos', name: 'Proyectos' },
   ];
 
   searchTerm: string = '';

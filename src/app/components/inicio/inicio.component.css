@@ -63,9 +63,7 @@
 
 .containerv {
   position: relative;
-  width: 100%;
   max-width: 100%; /* Ancho máximo del contenedor */
-  height: 430px;
   margin-left: 0%; /* Centrar el contenedor */
   -ms-flex-align: center;
   overflow: hidden; /* Ocultar cualquier parte de la imagen que sobresalga del contenedor */
@@ -146,24 +144,37 @@
 
 /* Estilos para dispositivos móviles */
 @media screen and (max-width: 576px) {
-  .content {
-    padding: 0 10px; /* Ajusta el espaciado lateral */
+  .carde {
+    margin-left: 0; /* Ajusta el margen izquierdo */
+    margin-right: 0; /* Ajusta el margen derecho */
   }
-  .container {
-    padding: 0; /* Elimina el relleno en los contenedores */
+
+  .carousel-item img {
+    width: 100%; /* Ancho completo para las imágenes del carrusel */
+    height: auto; /* Altura automática para mantener la proporción */
+  }
+
+  .btn-custom {
+    margin-top: 20px; /* Ajusta el margen superior del botón */
+  }
+
+ 
+
+  .container1 {
+    width: 100%; /* Ancho completo para el contenedor */
+    padding: 10px; /* Espaciado interno reducido */
+  }
+
+  .card {
+    width: 100%; /* Ancho completo para las tarjetas */
+    height: auto; /* Altura automática para adaptarse al contenido */
+    margin-bottom: 20px; /* Ajusta el margen inferior */
   }
 }
 
 /* Estilos para tablets y dispositivos más grandes */
-@media screen and (min-width: 768px) {
-  .content {
-    padding: 0 30px; /* Ajusta el espaciado lateral */
-  }
-  .container {
-    max-width: 750px; /* Limita el ancho máximo de los contenedores */
-    margin: auto; /* Centra los contenedores */
-  }
-}
+
+
 
 
 .menu-card {
@@ -337,6 +348,7 @@
   padding: 10px; /* Espaciado interior */
 }
 
+
 .btn-bajar {
   display: none; /* Ocultar el botón por defecto */
 }
@@ -380,8 +392,7 @@
 
 .carde{
 background-color: transparent;
-margin-top: 50px;
-margin-left: 300px;
+
 }
 .card-titlee{
   color: #ffffff;
@@ -396,6 +407,4 @@ margin-left: 300px;
   font-family: monospace;
   flex: auto;
 }
-.iman{
-  margin-left: 40px;
-}
+
