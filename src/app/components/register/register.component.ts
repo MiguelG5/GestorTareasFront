@@ -42,11 +42,13 @@ export class RegisterComponent {
     aceptarTerminos: [
       { type: 'required', message: 'Debes aceptar los Términos y Condiciones' },
     ],
+    captcha:[{type:'required', message:'Debes validar el captcha'}]
   };
 
   registerForm: FormGroup = this.fb.group(
     {
       username: ['', Validators.required],
+      captcha: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
       password: [
         '',
