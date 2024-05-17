@@ -174,7 +174,7 @@ export class ProyectosComponent implements OnInit {
       this.actividadesService.deleteActividad(id).subscribe(
         (res) => {
           if (this.selectedProjectId) {
-            this.getActividadesByProyecto(this.selectedProjectId); // Vuelve a cargar las actividades del proyecto
+            this.getActividadesByProyecto(this.selectedProjectId); 
           }
         },
         (err) => console.error(err)
