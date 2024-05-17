@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router'; 
 import { UserResponse } from 'src/app/models/Login.model';
 import { LoginService } from 'src/app/services/login.service';
 import { ProyectoService } from 'src/app/services/proyecto.service';
@@ -17,10 +18,12 @@ export class ProyectosComponent implements OnInit {
   ];
   user: UserResponse | null = null;
   proyectosDelUsuario: Proyecto[] = [];
+  selectedProjectId: number | null = null; // Variable para almacenar el ID del proyecto seleccionado
 
   constructor(
     public proyectoService: ProyectoService,
-    private loginService: LoginService
+    private loginService: LoginService,
+    private router: Router 
   ) {}
 
   ngOnInit(): void {
@@ -93,5 +96,10 @@ export class ProyectosComponent implements OnInit {
 
   resetForm(form: NgForm){
     form.reset();
+  }
+
+  navigateToActividades(projectId: number) {
+    this.selectedProjectId = projectId; // Almacena el ID del proyecto seleccionado
+    this.router.navigate(['/actividades']);
   }
 }

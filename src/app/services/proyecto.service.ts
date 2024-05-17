@@ -13,7 +13,6 @@ export class ProyectoService {
     descripcion: '',
     fecha_creacion : new Date(),
     fecha_finalizacion : new Date(),
-
   };
 
   private URL_API = 'http://localhost:3200/api/proyectos';
@@ -35,13 +34,10 @@ export class ProyectoService {
   }
 
   deleteProyecto(id: number){
-    return this.http.delete(`${this.URL_API}/${id}`)
+    return this.http.delete(`${this.URL_API}/${id}`);
   }
 
   getProyectoByUser(user_id: number) {
-    return this.http.get<Proyecto[]>(`${this.URL_API}?user_id=${user_id}`);
+    return this.http.get<Proyecto[]>(`${this.URL_API}/user/${user_id}`);
   }
-
-
 }
-

@@ -17,7 +17,6 @@ export class ActividadesComponent implements OnInit {
 ];
 user: UserResponse | null = null;
 
-
 constructor(
   public actividadesService: ActividadesService,
   private loginService: LoginService
@@ -36,8 +35,10 @@ getActividad() {
   );
 }
 
-addActividad(form: NgForm){
-  const usuarioString = localStorage.getItem('usuario');
+addActividad(form: NgForm) {
+  // Verificar si this.actividadesService.createActividad es null o no está definido
+  if (this.actividadesService.createActividad) {
+    const usuarioString = localStorage.getItem('usuario');
     if (!usuarioString) {
       console.error('No se encontró el usuario en el localStorage.');
       return;
@@ -46,27 +47,31 @@ addActividad(form: NgForm){
     const usuario = JSON.parse(usuarioString);
     const idUsuario = usuario.id;
 
-    form.value.user_id = idUsuario
-    
-if (form.value.id){
-  this.actividadesService.putActividad(form.value).subscribe(
-    (res)=> {
-      this.getActividad();
-      form.reset();
-    },
-    (err) => console.error(err)
-  );
-}else{
-  this.actividadesService.createActividad(form.value).subscribe(
-    (res)=> {
-      this.getActividad();
-      form.reset();
-    },
-    (err) => console.error(err)
-  )
+    form.value.user_id = idUsuario;
+
+    if (form.value.id) {
+      this.actividadesService.putActividad(form.value).subscribe(
+        (res) => {
+          this.getActividad();
+          form.reset();
+        },
+        (err) => console.error(err)
+      );
+    } else {
+      // Llamar al método createActividad solo si no es null
+      this.actividadesService.createActividad(form.value)?.subscribe(
+        (res) => {
+          this.getActividad();
+          form.reset();
+        },
+        (err) => console.error(err)
+      );
+    }
+  } else {
+    console.error('createActividad no está definido en actividadesService.');
+  }
 }
-  
-}
+
 
 deleteActividad(id: number){
 if(confirm('Estas seguro de querer eliminar tu proyecto?')){
@@ -84,16 +89,7 @@ editActividad(actividad: Actividad){
   this.actividadesService.selectedAtividad = actividad;
 }
 
-
 resetForm(form: NgForm){
   form.reset();
-}
-getProyectoByUser(proyecto_id: number) {
-  this.actividadesService.getActividadByUser(proyecto_id).subscribe(
-    (res) => {
-      this.actividadesService.actividad = res;
-    },
-    (err) => console.error(err)
-  );
 }
 }

@@ -54,16 +54,15 @@
                 <button class="btn btn-secondary btn-sm" data-bs-toggle="modal" data-bs-target="#exampleModal" (click)="editProyecto(proyecto)">
                     <i class="material-icons">edit</i> Editar
                 </button>
-                <button class="btn btn-danger btn-sm" (click)="deleteProyecto(proyecto.id)" >
+                <button class="btn btn-danger btn-sm" (click)="deleteProyecto(proyecto.id)">
                     <i class="material-icons">delete</i> Eliminar
                 </button>
-                <button class="btn btn-secondary btn-sm" data-bs-toggle="modal" data-bs-target="#exampleModal" (click)="editProyecto(proyecto)">
+                <!-- Botón para crear tarea -->
+                <button class="btn btn-secondary btn-sm" (click)="navigateToActividades(proyecto.id)">
                     <i class="material-icons">book</i> Crear Tarea
                 </button>
+
             </div>
-            
         </div>
     </div>
 </div>
-
-

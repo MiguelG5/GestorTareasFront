@@ -1,67 +1,65 @@
-<div class="row">
-    <div class="col-md-4">
-        <div class="card">
-            <div class="card-body">
-                <form #actividadForm="ngForm" (ngSubmit)="addActividad(actividadForm)">
+<br><!-- Botón para abrir el modal de crear nueva actividad -->
+<button type="button" class="btn bt1 btn-primary" data-bs-toggle="modal" data-bs-target="#actividadModal" data-bs-whatever="@mdo">Crear nueva actividad</button>
 
-                    <input type="hidden" name="id" [(ngModel)]="actividadesService.selectedAtividad.id">
-                   
-                    <div class="form-group">
-                    <input type="text" class="form-control" name="nombre_actividad" placeholder="Nombre de la actividad" [(ngModel)]="actividadesService.selectedAtividad.nombre_actividad">
-                    </div>
-                    <div class="form-group">
-                    <input type="text" class="form-control" name="descripcion" placeholder="Descripcion" [(ngModel)]="actividadesService.selectedAtividad.descripcion">
-                    </div>
-                    <div class="form-group">
-                    <input type="date" class="form-control" name="fecha_finalizacion" placeholder="Fecha de finalizacion" [(ngModel)]="actividadesService.selectedAtividad.fecha_finalizacion">
-                    </div>
-                    <button class="btn btn-primary" (click)="resetForm(actividadForm)">
-                        Limpiar
-                    </button>
-                    <button class="btn btn-secondary">
-                        crear
-                    </button>
-                </form>
+<!-- Modal para crear nueva actividad -->
+<div class="modal fade" id="actividadModal" tabindex="-1" aria-labelledby="actividadModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header mh">
+        <h1 class="modal-title hed fs-1" id="actividadModalLabel">Crea tu actividad</h1>
+        <button type="button" class="btn-close bb" data-bs-dismiss="modal" aria-label="Close" (click)="resetForm(actividadForm)"></button>
+      </div>
+      <div class="modal-body moda">
+        <div class="col-md-12">
+          <div class="cardd">
+            <div class="card-body">
+              <form #actividadForm="ngForm" (ngSubmit)="addActividad(actividadForm)">
+                <input type="hidden" name="id" [(ngModel)]="actividadesService.selectedAtividad.id">
+
+                <div class="form-group">
+                  <input type="text" class="form-control cale" name="nombre_actividad" placeholder="Nombre de la actividad" [(ngModel)]="actividadesService.selectedAtividad.nombre_actividad">
+                </div>
+                <div class="form-group">
+                  <input type="text" class="form-control cale" name="descripcion" placeholder="Descripcion" [(ngModel)]="actividadesService.selectedAtividad.descripcion">
+                </div>
+                <div class="form-group">
+                  <input type="date" class="form-control cale" name="fecha_finalizacion" placeholder="Fecha de finalizacion" [(ngModel)]="actividadesService.selectedAtividad.fecha_finalizacion">
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" (click)="resetForm(actividadForm)">Cerrar</button>
+                  <button class="btn btn-primary" data-bs-dismiss="modal">Crear</button>
+                </div>
+              </form>
             </div>
+          </div>
         </div>
+      </div>
     </div>
-    <div class="col-md-8">
-        <table class="table table-striped">
-            <thead>
-                <tr>
-                    <th>
-                        Nombre de la actividad
-                    </th>
-                    <th>
-                        Descripcion
-                    </th>
-                    <th>
-                        Fecha de creacion
-                    </th>
-                    <th>
-                        fecha de finalizacion
-                    </th>
-                    <th>
-                        Operaciones
-                    </th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr *ngFor="let actividad of actividadesService.actividad">
-                <td>{{actividad.nombre_actividad}}</td>
-                <td>{{actividad.descripcion}}</td>
-                <td>{{actividad.fecha_creacion}}</td>
-                <td>{{actividad.fecha_finalizacion}}</td>
-                <td>
-                    <button class="btn btn-secondary btn-sm" (click)="editActividad(actividad)">
-                        <i class="material-icons">edit</i>
-                    </button>
-                    <button class="btn btn-danger btn-sm" (click)="deleteActividad(actividad.id)">
-                        <i class="material-icons">delete</i>
-                    </button>
-                </td>
-                </tr>
-            </tbody>
-        </table>
+  </div>
+</div>
+
+<br><br>
+
+<!-- Tarjetas para mostrar actividades -->
+<div class="row row-cols-1 row-cols-md-4 g-4">
+  <div *ngFor="let actividad of actividadesService.actividad" class="col">
+    <div class="card custom-card mb-3">
+      <div class="card-header card-title">{{ actividad.nombre_actividad }}</div>
+      <div class="card-body">
+        <h5 class="card-title">Descripción</h5>
+        <p class="card-text">{{ actividad.descripcion }}</p>
+        <h6 class="card-title">Fecha de creación</h6>
+        <p class="card-text">{{ actividad.fecha_creacion | date:'dd/MM/yyyy HH:mm' }}</p>
+        <h6 class="card-title">Fecha de finalización</h6>
+        <p class="card-text">{{ actividad.fecha_finalizacion | date:'dd/MM/yyyy HH:mm' }}</p>
+        <br>
+        <button class="btn btn-secondary btn-sm" data-bs-toggle="modal" data-bs-target="#actividadModal" (click)="editActividad(actividad)">
+          <i class="material-icons">edit</i> Editar
+        </button>
+        <button class="btn btn-danger btn-sm" (click)="deleteActividad(actividad.id)">
+          <i class="material-icons">delete</i> Eliminar
+        </button>
+      </div>
     </div>
+  </div>
 </div>
