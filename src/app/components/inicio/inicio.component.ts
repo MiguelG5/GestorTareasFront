@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { PaqueteService } from 'src/app/services/paquetes.service';
+import { Paquete } from 'src/app/models/paquetes';
 
 @Component({
   selector: 'app-inicio',
@@ -12,7 +14,7 @@ export class InicioComponent implements OnInit {
     { label: 'Inicio', url: '/' }
   ];
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, public paqueteServices: PaqueteService) { }
 
   ngOnInit(): void {
     // Verifica si hay un usuario logeado
@@ -21,6 +23,16 @@ export class InicioComponent implements OnInit {
       // Inicia el temporizador de sesión si hay un usuario logeado
       this.startSessionTimer();
     }
+    this.getPaquetes();
+  }
+
+  getPaquetes() {
+    this.paqueteServices.getPaquetes().subscribe(
+      (res) => {
+        this.paqueteServices.paquetes = res;
+      },
+      (err) => console.error(err)
+    );
   }
 
   // Función para iniciar el temporizador de sesión

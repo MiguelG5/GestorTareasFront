@@ -96,40 +96,32 @@
   </div>
 <br>
 
-<div class="row justify-content-center row-cols-1 h-100 w-100 row-cols-md-4 g-4">
-  <div class="col">
-    <div class="card">
-      <img src="https://i.pinimg.com/736x/e4/a8/34/e4a8348d1a0e03c8b96488245bf54cbb.jpg" class="card-img-top" alt="...">
-      <div class="card-body">
-        <h5 class="card-title">Paquete Mensual</h5>
-        <p class="card-text">Accede a todas las funciones por un mes completo. Ideal para probar nuestras herramientas y ver si se ajustan a tus necesidades.</p>
-        <h3 class="card-text text-primary">MXN 100 / mes</h3>
-        <button routerLink="/error" type="button" class="btn btn-primary mt-3 btn-lg">Suscribirse</button>
+<!-- Tarjetas para mostrar paquetes -->
+<div class="row justify-content-center">
+  <div class="col-md-10">
+    <div class="row row-cols-1 row-cols-md-3 g-4">
+      <div *ngFor="let paquete of paqueteServices.paquetes" class="col">
+        <div class="card custom-card mb-3">
+          <div class="card-header card-title">{{ paquete.nombre_paquete }}</div>
+          <div class="card-body">
+            <h5 class="card-title">Descripción</h5>
+            <p class="card-text">{{ paquete.descripcion }}</p>
+            <h6 class="card-title">Duración del paquete</h6>
+            <p class="card-text">{{ paquete.duracion }} dias</p>
+            <h6 class="card-title">Costo MXN</h6>
+            <p class="card-text">{{ paquete.costo }}</p>
+            <br>
+            <button routerLink="/error" type="button" class="btn btn-primary mt-3 btn-lg">Suscribirse</button>
+          </div>
+        </div>
       </div>
     </div>
   </div>
-  <div class="col">
-    <div class="card">
-      <img src="https://i.pinimg.com/564x/24/51/c0/2451c0c54bd5e0787101681d18b72246.jpg" class="card-img-top" alt="...">
-      <div class="card-body">
-        <h5 class="card-title">Paquete Semestral</h5>
-          <p class="card-text">Disfruta de un ahorro con nuestro paquete de 6 meses. Acceso continuo a todas nuestras herramientas para un rendimiento óptimo.</p>
-          <h3 class="card-text text-primary">MXN 550 / 6 meses</h3>
-          <button routerLink="/error" type="button" class="btn btn-primary mt-3 btn-lg">Suscribirse</button>
-         </div>
-    </div>
-  </div>
-  <div class="col">
-    <div class="card">
-      <img src="https://i.pinimg.com/564x/ae/37/17/ae3717d7ec7704d0b51338c2e34ec8fe.jpg" class="card-img-top" alt="...">
-      <div class="card-body">
-        <h5 class="card-title">Paquete Anual</h5>
-          <p class="card-text">Obtén el mejor valor con nuestro paquete anual. Ideal para usuarios comprometidos que desean maximizar su productividad a largo plazo.</p>
-          <h3 class="card-text text-primary">MXN 900 / año</h3>
-          <button routerLink="/error" type="button" class="btn btn-primary mt-3 btn-lg">Suscribirse</button>
-        </div>
-    </div>
-  </div>
 </div>
+
+
+
+
+
 
 <br>
