@@ -11,7 +11,8 @@ export class PaqueteService {
     nombre_paquete: '',
     descripcion: '',
     costo: 0,
-    duracion: 0
+    duracion: 0,
+    numero_colaboradores: 0
   };
 
   private URL_API = 'https://gestortareasback.onrender.com/api/paquetes'; // Reemplazar 'URL_DEL_BACKEND' con la URL real del backend
@@ -28,11 +29,11 @@ export class PaqueteService {
     return this.http.post(this.URL_API, paquete);
   }
 
-  updatePaquete(paquete: Paquete){
+  updatePaquete(paquete: Paquete) {
     return this.http.put(`${this.URL_API}/${paquete.id}`, paquete);
   }
 
-  deletePaquete(id: number){
+  deletePaquete(id: number) {
     return this.http.delete(`${this.URL_API}/${id}`);
   }
 }

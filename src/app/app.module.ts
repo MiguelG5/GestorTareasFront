@@ -23,6 +23,7 @@ import { ResetPasswordComponent } from './components/reset-password/reset-passwo
 import { TerminosComponent } from './components/terminos/terminos.component';
 import { ProyectosComponent } from './components/proyectos/proyectos.component';
 import { ActividadesComponent } from './components/actividades/actividades.component';
+import { PagosComponent } from './components/pagos/pagos.component';
 
 
 
@@ -40,6 +41,7 @@ import { ActividadesComponent } from './components/actividades/actividades.compo
     TerminosComponent,
     ProyectosComponent,
     ActividadesComponent,
+    PagosComponent,
   ],
   imports: [
     BrowserModule,

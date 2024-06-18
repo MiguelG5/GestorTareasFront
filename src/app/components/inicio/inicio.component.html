@@ -107,21 +107,19 @@
             <h5 class="card-title">Descripción</h5>
             <p class="card-text">{{ paquete.descripcion }}</p>
             <h6 class="card-title">Duración del paquete</h6>
-            <p class="card-text">{{ paquete.duracion }} dias</p>
+            <p class="card-text">{{ paquete.duracion }} días</p>
             <h6 class="card-title">Costo MXN</h6>
             <p class="card-text">{{ paquete.costo }}</p>
+            <h6 class="card-title">Número de Colaboradores</h6>
+            <p class="card-text">{{ paquete.numero_colaboradores }}</p>
             <br>
-            <button routerLink="/error" type="button" class="btn btn-primary mt-3 btn-lg">Suscribirse</button>
+            <button (click)="suscribirse(paquete)" type="button" class="btn btn-primary mt-3 btn-lg">Suscribirse</button>
           </div>
         </div>
       </div>
     </div>
   </div>
 </div>
-
-
-
-
 
 
 <br>

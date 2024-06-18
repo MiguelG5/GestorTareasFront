@@ -70,4 +70,21 @@ export class LoginService {
 
     return this.http.post<BackResponse>(`${this.URL_API}/secondFactor`, data);
   }
+
+  validarcorreo(email: string) {
+    const data = {
+      correo: email,
+    };
+
+    return this.http.post<BackResponse>(`${this.URL_API}/validarcorreo`, data);
+  }
+
+  updateUserRoleToAdmin(userId: number): Observable<BackResponse> {
+    const data = {
+      user_id: userId
+    };
+
+    return this.http.put<BackResponse>(`${this.URL_API}/updateUserRoleToAdmin`, data);
+  }
 }
+

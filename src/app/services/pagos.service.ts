@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
 import { Pago } from '../models/pago';
 
 @Injectable({
@@ -9,34 +10,38 @@ export class PagoService {
   selectedPago: Pago = {
     id: 0,
     user_id: 0,
-    plan: '',
-    fecha_inicio: '', 
+    paquete_id: 0,
+    fecha_inicio: '',
     fecha_finalizacion: ''
   };
 
-  private URL_API = 'https://gestortareasback.onrender.com/api/pagos'; // Reemplazar 'URL_DEL_BACKEND' con la URL real del backend
+  private URL_API = 'https://gestortareasback.onrender.com/api/pagos'; // URL del backend
 
   pagos: Pago[] = [];
 
   constructor(private http: HttpClient) {}
 
-  getPagos() {
+  getPagos(): Observable<Pago[]> {
     return this.http.get<Pago[]>(this.URL_API);
   }
 
-  createPago(pago: Pago) {
-    return this.http.post(this.URL_API, pago);
+  getPago(id: number): Observable<Pago> {
+    return this.http.get<Pago>(`${this.URL_API}/${id}`);
   }
 
-  updatePago(pago: Pago){
-    return this.http.put(`${this.URL_API}/${pago.id}`, pago);
+  createPago(pago: Pago): Observable<Pago> {
+    return this.http.post<Pago>(this.URL_API, pago);
   }
 
-  deletePago(id: number){
-    return this.http.delete(`${this.URL_API}/${id}`);
+  updatePago(pago: Pago): Observable<Pago> {
+    return this.http.put<Pago>(`${this.URL_API}/${pago.id}`, pago);
   }
 
-  getPagosByUser(user_id: number) {
+  deletePago(id: number): Observable<Pago> {
+    return this.http.delete<Pago>(`${this.URL_API}/${id}`);
+  }
+
+  getPagosByUser(user_id: number): Observable<Pago[]> {
     return this.http.get<Pago[]>(`${this.URL_API}/user/${user_id}`);
   }
 }

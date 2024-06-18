@@ -22,7 +22,6 @@ export class LoginComponent {
   loginForm: FormGroup = this.fb.group({
     email: ['', [Validators.required, Validators.email]],
     password: ['', Validators.required],
-    captcha: ['', Validators.required],
   });
   errorMessage: string = '';
 

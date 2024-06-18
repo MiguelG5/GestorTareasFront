@@ -15,6 +15,7 @@ export interface RegisterRequest {
   email: string;
   password: string;
   role: string;
+  razon_social?: string; // Campo opcional para la razón social
 }
 
 export interface RegisterResponse {
@@ -34,4 +35,6 @@ export interface BackResponse {
   mensaje: string;
   objeto: any;
   token: string;
+  success?: boolean; // Propiedad opcional para indicar éxito o falla
+  error?: string;   // Propiedad opcional para el mensaje de error
 }

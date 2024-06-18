@@ -35,6 +35,10 @@ export class InicioComponent implements OnInit {
     );
   }
 
+  suscribirse(paquete: Paquete) {
+    this.router.navigate(['/pagos'], { state: { paquete } });
+  }
+
   // Función para iniciar el temporizador de sesión
   startSessionTimer() {
     setTimeout(() => {
@@ -62,5 +66,4 @@ export class InicioComponent implements OnInit {
     localStorage.clear();
     window.location.reload();
   }
-
 }
