@@ -7,6 +7,8 @@ import { NgForm } from '@angular/forms';
 import { ActividadesService } from 'src/app/services/actividades.service'; 
 import { Actividad } from 'src/app/models/actividad'; 
 import { Proyecto } from 'src/app/models/proyecto';
+import { ColaboradorService } from 'src/app/services/colaboradores.service'; // Importa el servicio de colaboradores
+import { Colaborador } from 'src/app/models/colaboradores'; // Importa el modelo de colaboradores
 
 @Component({
   selector: 'app-proyectos',
@@ -27,10 +29,13 @@ export class ProyectosComponent implements OnInit {
   proyectosDelUsuario: Proyecto[] = [];
   selectedProjectId: number | null = null; // Variable para almacenar el ID del proyecto seleccionado
   actividadesDelProyecto: Actividad[] = []; // Variable para almacenar las actividades del proyecto seleccionado
+  colaboradoresDelUsuario: Colaborador[] = [];
+  selectedColaboradores: number[] = []; // Almacena los IDs de los colaboradores seleccionados
 
   constructor(
     public proyectoService: ProyectoService,
     public actividadesService: ActividadesService,
+    private colaboradorService: ColaboradorService, // Inyecta el servicio de colaboradores
     private loginService: LoginService,
     private router: Router 
   ) {}
@@ -41,10 +46,21 @@ export class ProyectosComponent implements OnInit {
       this.user = JSON.parse(usuarioString);
       if (this.user !== null) {
         this.getProyectoByUser(this.user.id);
+        this.getColaboradoresByUser(this.user.id); // Carga los colaboradores del usuario logueado
       }
     } else {
       console.error('No se encontró el usuario en el localStorage.');
     }
+  }
+  
+  getColaboradoresByUser(user_id: number) {
+    this.colaboradorService.getColaboradoresByUser(user_id).subscribe(
+      (res) => {
+        console.log('Colaboradores recibidos:', res); // Log para verificar datos recibidos
+        this.colaboradoresDelUsuario = res;
+      },
+      (err) => console.error(err)
+    );
   }
 
   getProyectoByUser(user_id: number) {
@@ -134,21 +150,26 @@ export class ProyectosComponent implements OnInit {
     const idUsuario = this.user?.id;
     if (idUsuario) {
       form.value.user_id = idUsuario;
-      form.value.proyecto_id = this.actividadesService.selectedAtividad.proyecto_id; // Asegúrate de que el formulario tenga el proyecto_id
+      form.value.proyecto_id = this.actividadesService.selectedAtividad.proyecto_id;
+      
+      const actividad = form.value;
+      actividad.colaboradores = this.selectedColaboradores; // Añade los colaboradores seleccionados
 
-      if (form.value.id) {
-        this.actividadesService.putActividad(form.value).subscribe(
+      if (actividad.id) {
+        this.actividadesService.putActividad(actividad).subscribe(
           (res) => {
-            this.getActividadesByProyecto(this.actividadesService.selectedAtividad.proyecto_id); // Actualizar las actividades del proyecto
+            this.getActividadesByProyecto(this.actividadesService.selectedAtividad.proyecto_id);
             form.reset();
+            this.selectedColaboradores = []; // Resetea los colaboradores seleccionados
           },
           (err) => console.error(err)
         );
       } else {
-        this.actividadesService.createActividad(form.value).subscribe(
+        this.actividadesService.createActividad(actividad).subscribe(
           (res) => {
-            this.getActividadesByProyecto(this.actividadesService.selectedAtividad.proyecto_id); // Actualizar las actividades del proyecto
+            this.getActividadesByProyecto(this.actividadesService.selectedAtividad.proyecto_id);
             form.reset();
+            this.selectedColaboradores = []; // Resetea los colaboradores seleccionados
           },
           (err) => console.error(err)
         );
@@ -157,6 +178,7 @@ export class ProyectosComponent implements OnInit {
       console.error('No se encontró el usuario en el localStorage o el ID de usuario es inválido.');
     }
   }
+
 
   prepareNewActivity(proyectoId: number) {
     this.actividadesService.selectedAtividad = {
@@ -167,6 +189,7 @@ export class ProyectosComponent implements OnInit {
       fecha_creacion: '',
       fecha_finalizacion: ''
     };
+    this.selectedColaboradores = []; // Resetea los colaboradores seleccionados al preparar una nueva actividad
   }
 
   deleteActividad(id: number) {

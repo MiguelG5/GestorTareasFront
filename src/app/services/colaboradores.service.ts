@@ -22,7 +22,7 @@ export class ColaboradorService {
   enrolarColaboradorEnProyecto(colaboradorId: number, proyectoId: number): Observable<any> {
     return this.http.post(`${this.URL_API}/enrolar`, { colaborador_id: colaboradorId, proyecto_id: proyectoId });
   }
-  
+
   deleteColaboradorFromProyecto(colaboradorId: number, proyectoId: number): Observable<any> {
     return this.http.delete(`${this.URL_API}/enrolar/${colaboradorId}/${proyectoId}`);
   }

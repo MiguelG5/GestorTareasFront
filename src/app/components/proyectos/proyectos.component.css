@@ -155,3 +155,13 @@ textarea.cale {
     font-family: monospace;
     border: 2px solid white;
 }
+/* Asegúrate de que este estilo solo se aplique a los select dentro del modal de actividades */
+#actividadModal select.form-control.cale option {
+  color: white;
+
+}
+
+/* Cambiar el color del texto del select en general */
+#actividadModal select.form-control.cale {
+  color: white;
+}
