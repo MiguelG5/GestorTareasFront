@@ -24,6 +24,7 @@ import { TerminosComponent } from './components/terminos/terminos.component';
 import { ProyectosComponent } from './components/proyectos/proyectos.component';
 import { ActividadesComponent } from './components/actividades/actividades.component';
 import { PagosComponent } from './components/pagos/pagos.component';
+import { EnrolamientoComponent } from './components/enrolamiento/enrolamiento.component';
 
 
 
@@ -42,6 +43,7 @@ import { PagosComponent } from './components/pagos/pagos.component';
     ProyectosComponent,
     ActividadesComponent,
     PagosComponent,
+    EnrolamientoComponent,
   ],
   imports: [
     BrowserModule,

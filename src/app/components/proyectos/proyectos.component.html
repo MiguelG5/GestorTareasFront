@@ -102,12 +102,6 @@
   <div class="form-group">
     <input type="date" class="form-control cale" name="fecha_finalizacion" placeholder="Fecha de finalizacion" [(ngModel)]="actividadesService.selectedAtividad.fecha_finalizacion">
   </div>
-  <div class="form-group">
-    <label for="colaboradores">Seleccionar Colaboradores:</label>
-    <select multiple class="form-control cale" id="colaboradores" [(ngModel)]="selectedColaboradores" name="colaboradores">
-      <option *ngFor="let colaborador of colaboradoresDelUsuario" [value]="colaborador.id">{{ colaborador.email }}</option>
-    </select>
-  </div>
   <div class="modal-footer">
     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" (click)="resetForm(actividadForm)">Cerrar</button>
     <button class="btn btn-primary" data-bs-dismiss="modal">Crear</button>
@@ -146,6 +140,9 @@
                         <h6 class="card-title">Fecha de finalización</h6>
                         <p class="card-text">{{ actividad.fecha_finalizacion | date:'dd/MM/yyyy HH:mm' }}</p>
                         <br>
+
+                        <button (click)="suscribirse(actividad)" type="button" class="btn btn-primary btn-sm" data-bs-dismiss="modal"><i class="material-icons">manage_accounts</i>Gestionar colaboradores</button>
+
                         <button class="btn btn-secondary btn-sm" data-bs-toggle="modal" data-bs-target="#actividadModal" (click)="editActividad(actividad)">
                           <i class="material-icons">edit</i> Editar
                         </button>
@@ -160,3 +157,4 @@
             </div>
           </div>
         </div>
+        

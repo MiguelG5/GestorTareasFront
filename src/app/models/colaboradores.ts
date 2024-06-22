@@ -1,8 +1,9 @@
+// colaboradores.ts
 export interface Colaborador {
-    id: number;
-    usuario_id: number; // ID del usuario que creó el colaborador
-    email: string;
-    contrasena: string;
-    pago_id: number; // ID del pago asociado
-  }
-  
+  id: number;
+  usuario_id: number;
+  email: string;
+  contrasena: string;
+  pago_id: number;
+  selected: boolean; // Agregar esta propiedad
+}

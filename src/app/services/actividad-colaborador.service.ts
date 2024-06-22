@@ -31,7 +31,13 @@ export class ActividadColaboradorService {
     return this.http.get<ActividadColaborador[]>(`${this.URL_API}/colaborador/${colaborador_id}`);
   }
 
-  enrolarColaboradorEnActividad(actividadColaborador: ActividadColaborador) {
-    return this.http.post(this.URL_API + '/enrolar', actividadColaborador);
-  }
+  // actividad-colaborador.service.ts
+enrolarColaboradoresEnActividad(actividad_id: number, colaborador_ids: number[]) {
+  return this.http.post(`${this.URL_API}/enrolar`, { actividad_id, colaboradores: colaborador_ids });
+}
+
+eliminarColaboradorDeActividad(actividad_id: number, colaborador_id: number) {
+  return this.http.delete(`${this.URL_API}/eliminar/${actividad_id}/${colaborador_id}`);
+}
+
 }

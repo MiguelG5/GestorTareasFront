@@ -11,11 +11,13 @@ import { TerminosComponent } from './components/terminos/terminos.component';
 import { ProyectosComponent } from './components/proyectos/proyectos.component';
 import { ActividadesComponent } from './components/actividades/actividades.component';
 import { PagosComponent } from './components/pagos/pagos.component';
+import { EnrolamientoComponent } from './components/enrolamiento/enrolamiento.component';
 
 const routes: Routes = [
   { path: '', component: InicioComponent },
   { path: 'proyectos', component: ProyectosComponent, canActivate: [AuthGuard] },
   { path: 'pagos', component: PagosComponent, canActivate: [AuthGuard] },
+  { path: 'enrolamiento', component: EnrolamientoComponent},
   { path: 'condiciones', component: TerminosComponent}, 
   { path: 'error', component: PaginaerrorComponent },
   { path: 'login', component: LoginComponent },

@@ -18,6 +18,12 @@ export class ColaboradorService {
   getColaboradoresByUser(userId: number): Observable<Colaborador[]> {
     return this.http.get<Colaborador[]>(`${this.URL_API}/user/${userId}`);
   }
+  
+  getColaboradoresByIds(colaboradorIds: number[]): Observable<Colaborador[]> {
+    // Implementación para obtener colaboradores por IDs
+    // Ejemplo hipotético:
+    return this.http.post<Colaborador[]>(`${this.URL_API}/details`, { ids: colaboradorIds });
+  }
 
   enrolarColaboradorEnProyecto(colaboradorId: number, proyectoId: number): Observable<any> {
     return this.http.post(`${this.URL_API}/enrolar`, { colaborador_id: colaboradorId, proyecto_id: proyectoId });

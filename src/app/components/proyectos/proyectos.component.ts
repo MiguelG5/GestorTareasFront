@@ -53,6 +53,10 @@ export class ProyectosComponent implements OnInit {
     }
   }
   
+  suscribirse(actividad: Actividad) {
+    this.router.navigate(['/enrolamiento'], { state: { actividad, proyectoId: this.selectedProjectId } });
+  }  
+
   getColaboradoresByUser(user_id: number) {
     this.colaboradorService.getColaboradoresByUser(user_id).subscribe(
       (res) => {
