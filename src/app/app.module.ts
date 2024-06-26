@@ -25,6 +25,7 @@ import { ProyectosComponent } from './components/proyectos/proyectos.component';
 import { ActividadesComponent } from './components/actividades/actividades.component';
 import { PagosComponent } from './components/pagos/pagos.component';
 import { EnrolamientoComponent } from './components/enrolamiento/enrolamiento.component';
+import { CuentaComponent } from './components/cuenta/cuenta.component';
 
 
 
@@ -44,6 +45,7 @@ import { EnrolamientoComponent } from './components/enrolamiento/enrolamiento.co
     ActividadesComponent,
     PagosComponent,
     EnrolamientoComponent,
+    CuentaComponent,
   ],
   imports: [
     BrowserModule,

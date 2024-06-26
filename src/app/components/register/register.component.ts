@@ -97,7 +97,7 @@ export class RegisterComponent {
       .validarcorreo(this.registerForm.get('email')?.value)
       .subscribe(async (respV) => {
         const { value: code } = await Swal.fire({
-          text: 'Se ha enviado un código de verificación al correo.',
+          text: 'Se ha enviado un código para validar el correo.',
           input: 'text',
           inputValue: '',
           inputAttributes: {
