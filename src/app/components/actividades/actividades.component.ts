@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { ActividadesService } from 'src/app/services/actividades.service';
+import { ActividadColaboradorService } from 'src/app/services/actividad-colaborador.service';
+import { Actividad } from 'src/app/models/actividad';
+import { ActividadColaborador } from 'src/app/models/actividad_colaborador';
 import { UserResponse } from 'src/app/models/Login.model';
-import { LoginService } from 'src/app/services/login.service';
-import { ActividadesService } from 'src/app/services/actividades.service'; 
-import { NgForm } from '@angular/forms';
-import { Actividad } from 'src/app/models/actividad'; 
 
 @Component({
   selector: 'app-actividades',
@@ -11,85 +11,49 @@ import { Actividad } from 'src/app/models/actividad';
   styleUrls: ['./actividades.component.css']
 })
 export class ActividadesComponent implements OnInit {
-  breadcrumbs = [
-  { label: 'Inicio', url: '' },
-  { label: 'Reservaciones', url: 'reservaciones' },
-];
-user: UserResponse | null = null;
+  
+  actividades: Actividad[] = [];
+  user: UserResponse | null = null;
+  colaboradorId: number | undefined; // Variable para almacenar el id_colaborador
+  
+  constructor(
+    private actividadesService: ActividadesService,
+    private actividadColaboradorService: ActividadColaboradorService
+  ) { }
 
-constructor(
-  public actividadesService: ActividadesService,
-  private loginService: LoginService
-) {}
-
-ngOnInit(): void {
-    this.getActividad();
-}
-
-getActividad() {
-  this.actividadesService.getActividad().subscribe(
-    (res) => {
-      this.actividadesService.actividad = res;
-    },
-    (err) => console.error(err)
-  );
-}
-
-addActividad(form: NgForm) {
-  // Verificar si this.actividadesService.createActividad es null o no está definido
-  if (this.actividadesService.createActividad) {
-    const usuarioString = localStorage.getItem('usuario');
-    if (!usuarioString) {
-      console.error('No se encontró el usuario en el localStorage.');
-      return;
-    }
-
-    const usuario = JSON.parse(usuarioString);
-    const idUsuario = usuario.id;
-
-    form.value.user_id = idUsuario;
-
-    if (form.value.id) {
-      this.actividadesService.putActividad(form.value).subscribe(
-        (res) => {
-          this.getActividad();
-          form.reset();
-        },
-        (err) => console.error(err)
-      );
+  ngOnInit() {
+    const user = JSON.parse(localStorage.getItem('usuario') || '{}');
+    console.log('Parsed user:', user);
+    const id_colaborador = user.id_colaborador;
+    console.log('id_colaborador:', id_colaborador);
+  
+    if (id_colaborador !== undefined) {
+      console.log('id_colaborador is defined:', id_colaborador);
     } else {
-      // Llamar al método createActividad solo si no es null
-      this.actividadesService.createActividad(form.value)?.subscribe(
-        (res) => {
-          this.getActividad();
-          form.reset();
+      console.log('id_colaborador is undefined');
+    }
+  }
+  
+  
+
+  getActividadesByColaborador(colaboradorId: number) {
+    this.actividadColaboradorService.getEnrolamientosByColaborador(colaboradorId).subscribe(
+      (enrolamientos: ActividadColaborador[]) => {
+        const actividadIds = enrolamientos.map(enrolamiento => enrolamiento.actividad_id);
+        this.getActividadesByIds(actividadIds);
+      },
+      (err) => console.error(err)
+    );
+  }
+
+  getActividadesByIds(ids: number[]) {
+    ids.forEach(id => {
+      this.actividadesService.getActividadById(id).subscribe(
+        (actividad: Actividad) => {
+          this.actividades.push(actividad);
         },
         (err) => console.error(err)
       );
-    }
-  } else {
-    console.error('createActividad no está definido en actividadesService.');
+    });
   }
-}
-
-
-deleteActividad(id: number){
-if(confirm('Estas seguro de querer eliminar tu ACTIVIDAD?')){
-  this.actividadesService.deleteActividad(id).subscribe(
-    (res)=> {
-      this.getActividad();
-    },
-    (err) => console.error(err)
-  );
-}
-}
-
-editActividad(actividad: Actividad){
-
-  this.actividadesService.selectedAtividad = actividad;
-}
-
-resetForm(form: NgForm){
-  form.reset();
-}
 }

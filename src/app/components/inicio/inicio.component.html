@@ -8,7 +8,7 @@
             <div class="card-body">
               <h5 class="card-titlee mt-4">Unifica tus tareas, herramientas y logra tus objetivos</h5>
               <p class="card-textt mt-4">En un mundo donde la productividad es clave, encontrar la manera de unificar todas nuestras tareas y herramientas se vuelve fundamental. Con una plataforma integrada, podemos simplificar nuestra vida diaria, desde la gestión de proyectos hasta el seguimiento de tareas pendientes. </p>
-              <button routerLink="/register" type="submit" class="btn btn1 btn-custom">
+              <button *ngIf="isNotLoggedIn()" routerLink="/register" type="submit" class="btn btn1 btn-custom">
                 REGISTRATE
               </button>      
             </div>
@@ -97,11 +97,12 @@
 <br>
 
 <!-- Tarjetas para mostrar paquetes -->
+<div class="container">
 <div class="row justify-content-center">
-  <div class="col-md-10">
+  <div class="col-lg-13">
     <div class="row row-cols-1 row-cols-md-3 g-4">
-      <div *ngFor="let paquete of paqueteServices.paquetes" class="col">
-        <div class="card custom-card mb-3">
+      <div *ngFor="let paquete of paqueteServices.paquetes" class="col mb-4">
+        <div class="card h-100">
           <div class="card-header card-title">{{ paquete.nombre_paquete }}</div>
           <div class="card-body">
             <h5 class="card-title">Descripción</h5>
@@ -113,12 +114,13 @@
             <h6 class="card-title">Número de Colaboradores</h6>
             <p class="card-text">{{ paquete.numero_colaboradores }}</p>
             <br>
-            <button (click)="suscribirse(paquete)" type="button" class="btn btn-primary mt-3 btn-lg">Suscribirse</button>
+            <button *ngIf="isUser()" (click)="suscribirse(paquete)" type="button" class="btn btn-primary mt-3 btn-lg">Suscribirse</button>
           </div>
         </div>
       </div>
     </div>
   </div>
+</div>
 </div>
 
 

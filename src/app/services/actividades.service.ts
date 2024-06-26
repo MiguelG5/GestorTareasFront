@@ -25,6 +25,10 @@ export class ActividadesService {
   getActividad() {
     return this.http.get<Actividad[]>(this.URL_API);
   }
+  getActividades() {
+    return this.http.get<Actividad[]>(this.URL_API);
+  }
+
 
   createActividad(actividad: Actividad) {
     return this.http.post(this.URL_API, actividad);
@@ -40,6 +44,10 @@ export class ActividadesService {
 
   getActividadByProyecto(proyecto_id: number) {
     return this.http.get<Actividad[]>(`${this.URL_API}/proyecto/${proyecto_id}`);
+}
+
+getActividadById(id: number) {
+  return this.http.get<Actividad>(`${this.URL_API}/${id}`);
 }
 
 }

@@ -16,6 +16,7 @@ export interface RegisterRequest {
   password: string;
   role: string;
   razon_social?: string; // Campo opcional para la razón social
+  id_colaborador?: number; // Campo opcional para el id_colaborador
 }
 
 export interface RegisterResponse {
@@ -28,6 +29,7 @@ export interface UserResponse {
   username: string;
   email: string;
   role: string;
+  id_colaborador?: number; // Campo opcional para el id_colaborador
 }
 
 export interface BackResponse {
@@ -37,4 +39,16 @@ export interface BackResponse {
   token: string;
   success?: boolean; // Propiedad opcional para indicar éxito o falla
   error?: string;   // Propiedad opcional para el mensaje de error
+}
+export interface User {
+  id: number;
+  username: string;
+  email: string;
+  role: string;
+  razon_social?: string;
+  id_colaborador?: number;
+}
+
+export interface UserListResponse {
+  users: User[];
 }

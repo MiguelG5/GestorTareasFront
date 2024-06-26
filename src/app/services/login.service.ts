@@ -7,6 +7,7 @@ import {
   RegisterResponse,
   BackResponse,
   UserResponse,
+  UserListResponse, // Import the new model for the list of users
 } from '../models/Login.model';
 
 import { BehaviorSubject, Observable } from 'rxjs';
@@ -86,5 +87,9 @@ export class LoginService {
 
     return this.http.put<BackResponse>(`${this.URL_API}/updateUserRoleToAdmin`, data);
   }
+  getAllUsers(): Observable<UserListResponse> {
+    return this.http.get<UserListResponse>(`${this.URL_API}/users`);
+  }
+  
 }
 

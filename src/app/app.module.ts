@@ -26,6 +26,7 @@ import { ActividadesComponent } from './components/actividades/actividades.compo
 import { PagosComponent } from './components/pagos/pagos.component';
 import { EnrolamientoComponent } from './components/enrolamiento/enrolamiento.component';
 import { CuentaComponent } from './components/cuenta/cuenta.component';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
 
 
 
@@ -46,6 +47,7 @@ import { CuentaComponent } from './components/cuenta/cuenta.component';
     PagosComponent,
     EnrolamientoComponent,
     CuentaComponent,
+    DashboardComponent,
   ],
   imports: [
     BrowserModule,

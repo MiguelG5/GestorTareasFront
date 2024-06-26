@@ -12,6 +12,10 @@ import { LoginService } from 'src/app/services/login.service';
   styleUrls: ['./enrolamiento.component.css']
 })
 export class EnrolamientoComponent implements OnInit {
+  breadcrumbs = [
+    { label: 'Inicio', url: '' },
+    { label: 'Enrolamiento', url: '/enrolamiento' },
+  ];
   actividad: Actividad | undefined;
   proyectoId: number | undefined;
   colaboradores: Colaborador[] = [];

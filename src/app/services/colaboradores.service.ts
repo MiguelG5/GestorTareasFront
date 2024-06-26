@@ -32,5 +32,7 @@ export class ColaboradorService {
   deleteColaboradorFromProyecto(colaboradorId: number, proyectoId: number): Observable<any> {
     return this.http.delete(`${this.URL_API}/enrolar/${colaboradorId}/${proyectoId}`);
   }
-
+  updateColaborador(colaborador: { id: number; email: string; password: string }): Observable<Colaborador> {
+    return this.http.put<Colaborador>(`${this.URL_API}/update`, colaborador);
+  }
 }

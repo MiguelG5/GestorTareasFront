@@ -23,7 +23,11 @@
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
       <div class="navbar-nav">
         <ng-container *ngIf="user">
-          <a class="nav-link" routerLink="/proyectos">Tus Proyecto</a>
+          <a *ngIf="isAdmin()" class="nav-link" routerLink="/proyectos">Tus Proyecto</a>
+          <a *ngIf="isAdmin()" class="nav-link" routerLink="/cuenta">Colaboradores</a>
+          <a *ngIf="isCollaborator()" class="nav-link" routerLink="/actividades">actividades</a>
+          <a *ngIf="isMaster()" class="nav-link" routerLink="/dashboard">DASHBOARD</a>
+
         </ng-container>
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -90,12 +94,7 @@
         <ul
           class="dropdown-menu dropdown-menu-dark"
           aria-labelledby="dropdownUserButton"
-        >
-        <li>
-          <a class="dropdown-item" routerLink="/cuenta">
-            Mi cuenta
-          </a>
-        </li>
+        >        
           <li>
             <button class="dropdown-item" (click)="logout()">
               Cerrar Sesión

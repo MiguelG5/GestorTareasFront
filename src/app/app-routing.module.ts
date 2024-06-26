@@ -13,10 +13,13 @@ import { ActividadesComponent } from './components/actividades/actividades.compo
 import { PagosComponent } from './components/pagos/pagos.component';
 import { EnrolamientoComponent } from './components/enrolamiento/enrolamiento.component';
 import { CuentaComponent } from './components/cuenta/cuenta.component';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
 
 const routes: Routes = [
   { path: '', component: InicioComponent },
   { path: 'cuenta', component: CuentaComponent, canActivate: [AuthGuard] },
+  { path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard] },
+  { path: 'actividades', component: ActividadesComponent, canActivate: [AuthGuard] },
   { path: 'proyectos', component: ProyectosComponent, canActivate: [AuthGuard] },
   { path: 'pagos', component: PagosComponent, canActivate: [AuthGuard] },
   { path: 'enrolamiento', component: EnrolamientoComponent},

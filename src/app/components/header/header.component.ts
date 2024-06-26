@@ -37,4 +37,16 @@ export class HeaderComponent implements OnInit {
     // Se oculta el nombre completo solo si el cursor sale tanto del botón como del área donde se muestra el nombre completo
     this.showFullName = false;
   }
+  isCollaborator(): boolean {
+    return this.user?.role === 'colaborador';
+  }
+  isAdmin(): boolean {
+    return this.user?.role === 'Admin';
+  }
+  isUser(): boolean {
+    return this.user?.role === 'user';
+  }
+  isMaster(): boolean {
+    return this.user?.role === 'Master';
+  }
 }

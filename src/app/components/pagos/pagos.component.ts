@@ -14,6 +14,10 @@ declare var paypal: any;
   styleUrls: ['./pagos.component.css']
 })
 export class PagosComponent implements AfterViewInit {
+  breadcrumbs = [
+    { label: 'Inicio', url: '' },
+    { label: 'Pagos', url: '/pagos' },
+  ];
   
   @ViewChild('paypal', {static: false}) paypalElement!: ElementRef;
 
