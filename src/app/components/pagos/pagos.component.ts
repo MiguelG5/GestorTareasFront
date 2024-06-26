@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, AfterViewInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { PagoService } from 'src/app/services/pagos.service';
 import { LoginService } from 'src/app/services/login.service'; 
@@ -6,12 +6,17 @@ import { Paquete } from 'src/app/models/paquetes';
 import { Pago } from 'src/app/models/pago';
 import { UserResponse } from 'src/app/models/Login.model';
 
+declare var paypal: any;
+
 @Component({
   selector: 'app-pagos',
   templateUrl: './pagos.component.html',
   styleUrls: ['./pagos.component.css']
 })
-export class PagosComponent implements OnInit {
+export class PagosComponent implements AfterViewInit {
+  
+  @ViewChild('paypal', {static: false}) paypalElement!: ElementRef;
+
   paquete: Paquete | null = null;
   userId: number | null = null;
 
@@ -20,15 +25,36 @@ export class PagosComponent implements OnInit {
     this.paquete = navigation?.extras.state?.['paquete'] || null;
   }
 
-  ngOnInit(): void {
+  ngAfterViewInit(): void {
     // Obtener el ID del usuario logueado desde el localStorage
     const userLoggedIn = localStorage.getItem('usuario');
     if (userLoggedIn) {
       this.userId = JSON.parse(userLoggedIn).id;
     }
+
+    // Renderizar los botones de PayPal
+    if (this.paquete) {
+      paypal.Buttons({
+        createOrder: (data: any, actions: any) => {
+          return actions.order.create({
+            purchase_units: [{
+              amount: {
+                value: this.paquete?.costo.toString(), // El costo del paquete como string
+                currency_code: 'MXN' // Especificar la moneda en MXN
+              }
+            }]
+          });
+        },
+        onApprove: (data: any, actions: any) => {
+          return actions.order.capture().then((details: any) => {
+            this.registrarPago(); // Registrar el pago en la base de datos después de una transacción exitosa
+          });
+        }
+      }).render(this.paypalElement.nativeElement);
+    }
   }
 
-  pagar(): void {
+  registrarPago(): void {
     if (!this.paquete || this.userId === null) {
       alert('Error: no se ha podido obtener la información necesaria.');
       return;
